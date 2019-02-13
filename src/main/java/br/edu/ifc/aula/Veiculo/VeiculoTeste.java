@@ -18,8 +18,9 @@ public class VeiculoTeste {
         v1.setVelocidade(0);
         v1.setLigado(false);
         
-        
+        System.out.println(v1.isLigado());
         v1.ligar();
+        System.out.println(v1.isLigado());
         v1.acelerar();
         v1.acelerar();
         v1.acelerar();
