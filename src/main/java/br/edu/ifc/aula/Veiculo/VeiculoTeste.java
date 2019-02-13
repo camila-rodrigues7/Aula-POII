@@ -11,7 +11,13 @@ package br.edu.ifc.aula.Veiculo;
  */
 public class VeiculoTeste {
     public static void main(String[] args) {
-        Veiculo v1 = new Veiculo("Vermelho", 2008);
+        Veiculo v1 = new Veiculo();
+        
+        v1.setCor("Vermelho");
+        v1.setAno(2008);
+        v1.setVelocidade(0);
+        v1.setLigado(false);
+        
         
         v1.ligar();
         v1.acelerar();

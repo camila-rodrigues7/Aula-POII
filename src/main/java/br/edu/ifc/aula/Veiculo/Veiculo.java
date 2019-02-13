@@ -11,14 +11,34 @@ package br.edu.ifc.aula.Veiculo;
  */
 public class Veiculo {
 
-    String cor;
-    public int ano;
-    public int velocidade;
-    public boolean ligado;
+    public String cor;
+    private int ano;
+    private int velocidade;
+    protected boolean ligado;
 
     public Veiculo(String cor, int ano) {
         this.cor = cor;
         this.ano = ano;
+    }
+    
+    public Veiculo() {
+        
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public boolean isLigado() {
+        return ligado;
+    }
+
+    public void setLigado(boolean ligado) {
+        this.ligado = ligado;
     }
 
     public void ligar() {
@@ -44,8 +64,26 @@ public class Veiculo {
     public void frear(boolean parar) {
         if (parar) {
             this.velocidade = 0;
+            System.out.println("Parou");
         } else {
             this.velocidade -= 10;
+            System.out.println("Freou");
         }
+    }
+    
+    public void setAno(int valor) {
+        this.ano = valor;
+    }
+    
+    public int getAno() {
+        return this.ano;
+    }
+    
+    public void setVelocidade(int valor) {
+        this.ano = valor;
+    }
+    
+    public int getVelocidade() {
+        return this.velocidade;
     }
 }
