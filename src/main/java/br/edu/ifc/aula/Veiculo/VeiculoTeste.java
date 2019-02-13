@@ -13,6 +13,14 @@ public class VeiculoTeste {
     public static void main(String[] args) {
         Veiculo v1 = new Veiculo("Vermelho", 2008);
         
+        v1.ligar();
+        v1.acelerar();
+        v1.acelerar();
+        v1.acelerar();
+        v1.acelerar(30);
+        v1.frear(false);
+        v1.frear(true);
+        v1.desligar();
     }
     
 }
