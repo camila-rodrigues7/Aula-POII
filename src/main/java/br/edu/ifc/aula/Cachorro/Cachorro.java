@@ -17,7 +17,7 @@ public class Cachorro {
         String raca;
         
         public void latir() {
-            JOptionPane.showMessageDialog(null, this.nome + " AuAu");
+            JOptionPane.showMessageDialog(null, this.nome + (this.tamanho > 50 ? " Wo Wo" : " AuAu"));
         }
         
     }
