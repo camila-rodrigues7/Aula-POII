@@ -15,14 +15,23 @@ public class Veiculo {
     private int ano;
     private int velocidade;
     protected boolean ligado;
+    
+    private static int qtdVeiculos; //global
+    private static final int VELOCIDADE_MAXIMA = 180; //constante
 
     public Veiculo(String cor, int ano) {
         this.cor = cor;
         this.ano = ano;
+        qtdVeiculos++;
     }
-    
-    public Veiculo() {
+
+    public static int getQtdVeiculos() {
+        return qtdVeiculos;
+    }
+
         
+    public Veiculo() {
+        this("branco", 2019);
     }
 
     public String getCor() {
