@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifc.aula.aula01;
+package br.edu.ifc.aula.Cachorro;
 
 import javax.swing.JOptionPane;
 
@@ -17,7 +17,7 @@ public class Cachorro {
         String raca;
         
         public void latir() {
-            JOptionPane.showMessageDialog(null, this.nome + "AuAu");
+            JOptionPane.showMessageDialog(null, this.nome + " AuAu");
         }
         
     }

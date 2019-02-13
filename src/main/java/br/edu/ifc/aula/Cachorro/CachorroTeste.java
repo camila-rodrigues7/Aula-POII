@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifc.aula.aula01;
+package br.edu.ifc.aula.Cachorro;
 
 /**
  *
@@ -14,11 +14,11 @@ public class CachorroTeste {
         Cachorro c1 = new Cachorro();
         Cachorro c2 = new Cachorro();
         
-        c1.nome = "Bimbo";
+        c1.nome = "Bimbo ";
         c1.tamanho = 50;
         c1.raca = "Viralata";
         
-        c2.nome = "Adamastor";
+        c2.nome = "Adamastor ";
         c2.tamanho = 100;
         c2.raca = "Doberman";
         
