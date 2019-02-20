@@ -16,6 +16,7 @@ public class matematicaTeste {
        System.out.println(m.calculo(10.0, 4));
        System.out.println(m.media(4, 6));
        System.out.println(m.media("4", "6.6"));
+       
     
 }
     
