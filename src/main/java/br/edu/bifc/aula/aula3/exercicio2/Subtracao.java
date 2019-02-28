@@ -5,12 +5,16 @@
  */
 package br.edu.bifc.aula.aula3.exercicio2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
  */
-public abstract class OperacaoMatematica {
+public class Subtracao extends OperacaoMatematica {
 
-    public abstract double calcular(double x, double y);
-    
+    @Override
+    public double calcular(double x, double y) {
+        return x - y;
+    }
 }
