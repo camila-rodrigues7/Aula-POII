@@ -13,47 +13,104 @@ import javax.swing.JOptionPane;
  */
 public class ContaBancaria {
 
-    private String cliente;
-    private double saldo;
+  private String cliente;
+  private double saldo;
 
-    public String getCliente() {
-        return cliente;
+  // Saldo não pode ficar abaixo disso
+  private static final int SALDO_MINIMO = 50;
+
+  /**
+   * Verificar o saldo após efetuar alguma operação.
+   *
+   * @param valor
+   * @return
+   */
+  private boolean verificarSaldo(double valor) {
+    return this.saldo - valor >= SALDO_MINIMO;
+  }
+
+  /**
+   * Mostra o saldo
+   */
+  public void exibeSaldo() {
+    System.out.println("Saldo: " + this.saldo);
+  }
+
+  /**
+   * Retira valor da conta, se o saldo não ficar abaixo do saldo mínimo
+   *
+   * @see Conta#SALDO_MINIMO
+   * @param valor
+   */
+  public void saca(double valor) {
+    if (verificarSaldo(valor)) {
+      this.corrigirSaldo(valor, false);
+      System.out.println("Sacou " + valor);
+    } else {
+      System.out.println("Saldo Insuficiente!");
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
+  }
 
-    public double getSaldo() {
-        return saldo;
-    }
+  /**
+   * Deposita na conta
+   *
+   * @param valor valor a ser depositado
+   */
+  public void deposita(double valor) {
+    this.corrigirSaldo(valor, true);
+    System.out.println("Depositou " + valor);
+  }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+  /**
+   * Transfere desta conta para outra conta
+   *
+   * @see Conta#SALDO_MINIMO não pode ficar abaixo disso
+   * @param destino
+   * @param valor
+   */
+  public void transferePara(ContaBancaria destino, double valor) {
+    if (verificarSaldo(valor)) {
+      destino.setSaldo(destino.getSaldo() + valor);
+      corrigirSaldo(valor, false);
+      System.out.println("Transferência do cliente "
+          + this.getCliente()
+          + " para o cliente "
+          + destino.getCliente()
+          + " o valor de " + valor);
+    } else {
+      System.out.println("Saldo Insuficiente!");
     }
+  }
 
-    public void ContaBancaria () {
-        
+  /**
+   * Método padrão para aumentar/diminuir o valor do saldo desta conta
+   *
+   * @param valor
+   * @param aumentar
+   */
+  private void corrigirSaldo(double valor, boolean aumentar) {
+    if (aumentar) {
+      this.saldo += valor;
+//      this.saldo += 10;
+    } else {
+      this.saldo -= valor;
     }
-    
-    public void exibeSaldo() {
-        this.saldo = saldo;
-        JOptionPane.showMessageDialog(null, "Saldo Total: " + saldo);
-    }
+  }
 
-    public void sacaValor(double valor) {
-        this.saldo -= valor;
-        JOptionPane.showMessageDialog(null, (this.saldo <= 50 ? " Saldo Insuficiente" : "Seu saldo é: " + saldo));
+  public String getCliente() {
+    return cliente;
+  }
 
-    }
+  public void setCliente(String cliente) {
+    this.cliente = cliente;
+  }
 
-    public void depositaValor(double valor) {
-        this.saldo += valor;
-        JOptionPane.showMessageDialog(null, "Seu saldo é: " + saldo);
-    }
+  public double getSaldo() {
+    return saldo;
+  }
 
-    public void transferePara(double valor) {
-        this.saldo -= valor;
-        JOptionPane.showMessageDialog(null, "Seu saldo é: " + saldo);
-    }
+  public void setSaldo(double saldo) {
+    this.saldo = saldo;
+  }
 }
